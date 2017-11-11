@@ -52,12 +52,12 @@ ErrorHandler:
 SELECT CASE ERR
 CASE 53
         CLS
-        LOCATE 1, 1: PRINT "[ Filen "; Wallsfile$; " saknas. ] K”r setup eller ”ppna programmet i r„tt katalog."
+        LOCATE 1, 1: PRINT "[ Filen "; Wallsfile$; " saknas. ] KÃ¶r setup eller Ã¶ppna programmet i rÃ¤tt katalog."
         END
         RESUME
 CASE ELSE
         CLS
-        LOCATE 1, 1: PRINT "[ Ett fel intr„ffade { "; ERR; " } ]"
+        LOCATE 1, 1: PRINT "[ Ett fel intrÃ¤ffade { "; ERR; " } ]"
         END
         RESUME
 END SELECT
@@ -78,7 +78,7 @@ FOR r = 1 TO MAXROW
         FOR c = 1 TO MAXCOL
                 LOCATE r, c
                 IF area(r, c) = WALL THEN
-                        PRINT "Û";
+                        PRINT "â–ˆ";
                 ELSEIF area(r, c) = PLAYER THEN
                         lct = (r - 1) * 160 + (2 * (c - 1))
                         DEF SEG = &HB800
@@ -86,9 +86,9 @@ FOR r = 1 TO MAXROW
                         POKE lct, 2
                         DEF SEG
                 ELSEIF area(r, c) = DOOR THEN
-                        PRINT "ž";
+                        PRINT "â‚§";
                 ELSEIF area(r, c) = LOCKED.PASS THEN
-                        PRINT "±";
+                        PRINT "â–’";
                 ELSE
                         PRINT " ";
                 END IF
@@ -104,12 +104,12 @@ esc$ = CHR$(27)
 page1:
 CLS
 FOR X = 1 TO 79
-    LOCATE 1, X: PRINT "ß"
-    LOCATE 24, X: PRINT "Ü"
+    LOCATE 1, X: PRINT "â–€"
+    LOCATE 24, X: PRINT "â–„"
 NEXT X
 FOR Y = 1 TO 24
-    LOCATE Y, 1: PRINT "Û"
-    LOCATE Y, 79: PRINT "Û"
+    LOCATE Y, 1: PRINT "â–ˆ"
+    LOCATE Y, 79: PRINT "â–ˆ"
 NEXT Y
 
 Center 2, "SaRPG Version 1.0"
@@ -118,20 +118,20 @@ Center 5, "Some files you must have to run the game. This files is:"
 Center 6, "  File          Size   "
 Center 7, "MAZE.APG     1970 bytes"
 Center 8, "Symbols in SaRPG"
-Center 9, "² = UNLOCKED DOOR"
-Center 10, "± = LOCKED DORR "
+Center 9, "â–“ = UNLOCKED DOOR"
+Center 10, "â–’ = LOCKED DORR "
 COLOR 14, 0
 Center 11, CHR$(2) + "               "
 COLOR 7, 0
 LOCATE 11, 33: PRINT "= PLAYER"
 Center 12, "x = EXIT DOOR   "
-Center 13, "Û = WALL        "
-Center 14, "¨ = KEY         "
+Center 13, "â–ˆ = WALL        "
+Center 14, "Â¿ = KEY         "
 
 LOCATE 15, 3: PRINT "Story:"
 Center 16, "Mr." + SOutput$ + " has been used to fight for the land in the distance."
 Center 17, "Because that land is threatened by some aliens from the outer space."
-Center 18, "They... „h, just play the game and have some fun because I won't write"
+Center 18, "They... Ã¤h, just play the game and have some fun because I won't write"
 Center 19, "any more!!!"
 
 DO
@@ -149,12 +149,12 @@ END SELECT
 page2:
 CLS
 FOR X = 1 TO 79
-    LOCATE 1, X: PRINT "ß"
-    LOCATE 24, X: PRINT "Ü"
+    LOCATE 1, X: PRINT "â–€"
+    LOCATE 24, X: PRINT "â–„"
 NEXT X
 FOR Y = 1 TO 24
-    LOCATE Y, 1: PRINT "Û"
-    LOCATE Y, 79: PRINT "Û"
+    LOCATE Y, 1: PRINT "â–ˆ"
+    LOCATE Y, 79: PRINT "â–ˆ"
 NEXT Y
 
 Center 2, "SaRPG Version 1.0"
@@ -178,12 +178,12 @@ IF pRow = key1Row AND pCol = key1Col THEN area(12, 31) = 0
 IF pRow = key2Row AND pCol = key2Col THEN area(22, 16) = 0
 
 IF key1 <> PASSED THEN
-    IF area(6, 75) = 0 THEN LOCATE 12, 31: PRINT "²": key1 = PASSED
+    IF area(6, 75) = 0 THEN LOCATE 12, 31: PRINT "â–“": key1 = PASSED
 ELSEIF area(6, 75) <> 0 THEN key1 = NOT PASSED
 END IF
 
 IF key2 <> PASSED THEN
-    IF area(11, 13) = 0 THEN LOCATE 22, 16: PRINT "²": key2 = PASSED
+    IF area(11, 13) = 0 THEN LOCATE 22, 16: PRINT "â–“": key2 = PASSED
 ELSEIF area(11, 13) <> 0 THEN key2 = NOT PASSED
 END IF
 END SUB
@@ -197,23 +197,23 @@ enter$ = CHR$(13)
 
 CLS
 Center 1, "SaRPG"
-Center 2, "îîîîî"
+Center 2, "ÎµÎµÎµÎµÎµ"
 Center 24, "Version 1.0"
 FOR X = 20 TO 60
-    LOCATE 4, X: PRINT "ß"
-    LOCATE 12, X: PRINT "Ü"
+    LOCATE 4, X: PRINT "â–€"
+    LOCATE 12, X: PRINT "â–„"
 NEXT X
 FOR Y = 4 TO 12
-    LOCATE Y, 20: PRINT "Û"
-    LOCATE Y, 60: PRINT "Û"
+    LOCATE Y, 20: PRINT "â–ˆ"
+    LOCATE Y, 60: PRINT "â–ˆ"
 NEXT Y
 FOR X = 20 TO 60
-    LOCATE 14, X: PRINT "ß"
-    LOCATE 20, X: PRINT "Ü"
+    LOCATE 14, X: PRINT "â–€"
+    LOCATE 20, X: PRINT "â–„"
 NEXT X
 FOR Y = 14 TO 20
-    LOCATE Y, 20: PRINT "Û"
-    LOCATE Y, 60: PRINT "Û"
+    LOCATE Y, 20: PRINT "â–ˆ"
+    LOCATE Y, 60: PRINT "â–ˆ"
 NEXT Y
 'COLOR 7, 0
 
@@ -366,9 +366,9 @@ END SUB
 SUB PutKeys
 
 LOCATE 6, 75
-PRINT "¨";
+PRINT "Â¿";
 LOCATE 11, 13
-PRINT "¨";
+PRINT "Â¿";
 
 END SUB
 

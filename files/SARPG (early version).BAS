@@ -126,12 +126,12 @@ SELECT CASE ERR
 CASE 53
     CLS
     LOCATE 1, 1: PRINT "En Fil saknas. Installera om programmet eller "
-    LOCATE 2, 1: PRINT "starta om programmet i r„tt katalog."
+    LOCATE 2, 1: PRINT "starta om programmet i rÃ¤tt katalog."
     END
     RESUME
 CASE ELSE
     CLS
-    LOCATE 1, 1: PRINT "Ett fel har intr„ffat { "; ERR; " }"
+    LOCATE 1, 1: PRINT "Ett fel har intrÃ¤ffat { "; ERR; " }"
     LOCATE 2, 1: PRINT LTRIM$(RTRIM$(STR$(ERL)))
     END
     RESUME
@@ -172,13 +172,13 @@ SUB DoBox (row1, col1, row2, col2, colour)
 COLOR colour, 0
 
 FOR col = col1 TO col2
-    LOCATE row1, col: PRINT "ß"
-    LOCATE row2, col: PRINT "Ü"
+    LOCATE row1, col: PRINT "â–€"
+    LOCATE row2, col: PRINT "â–„"
 NEXT col
 
 FOR row = row1 TO row2
-    LOCATE row, col1: PRINT "Û"
-    LOCATE row, col2: PRINT "Û"
+    LOCATE row, col1: PRINT "â–ˆ"
+    LOCATE row, col2: PRINT "â–ˆ"
 NEXT row
 FOR row = row1 + 1 TO row2 - 1
 FOR col = col1 + 1 TO col2 - 1
@@ -246,7 +246,7 @@ FOR r = 1 TO MAXROW
         FOR c = 1 TO MAXCOL
                 LOCATE r, c
                 IF area(r, c) = WALL THEN
-                        PRINT "Û"
+                        PRINT "â–ˆ"
                 ELSEIF area(r, c) = PLAYER THEN
                         IF Load = FALSE THEN
                             lct = (pRow - 1) * 160 + ((pCol - 1) * 2)
@@ -257,9 +257,9 @@ FOR r = 1 TO MAXROW
                         ELSE
                         END IF
                 ELSEIF area(r, c) = DOOR THEN
-                        PRINT "°"
+                        PRINT "â–‘"
                 ELSEIF area(r, c) = LOCKED.PASS THEN
-                        PRINT "±"
+                        PRINT "â–’"
                 ELSEIF area(r, c) = ENEMY THEN
                         PRINT CHR$(1)
                 ELSE
@@ -340,12 +340,12 @@ SaveBG 0, 1, 1, 24, 80, BG()
 CLS
 DoBox 1, 1, 24, 80, 7
 Center 2, "Symbols in SaRpg3:"
-Center 3, "¾ = Player       "
-Center 4, "¨ = Key          "
-Center 5, "Û = Wall         "
-Center 6, "° = Locked door  "
-Center 7, "± = Locked door  "
-Center 8, "² = Unlocked door"
+Center 3, "â•› = Player       "
+Center 4, "Â¿ = Key          "
+Center 5, "â–ˆ = Wall         "
+Center 6, "â–‘ = Locked door  "
+Center 7, "â–’ = Locked door  "
+Center 8, "â–“ = Unlocked door"
 Center 10, "Shorts: "
 Center 11, "AT = Attack"
 Center 12, "DF = Defence"
@@ -698,7 +698,7 @@ CLS
 DoBox 6, 25, 12, 55, 7
 cursor = 1
 Center 2, "SaRpg"
-Center 3, "îîîîî"
+Center 3, "ÎµÎµÎµÎµÎµ"
 Center 24, "Version 1.0"
 DO
         IF cursor = 1 THEN
@@ -903,12 +903,12 @@ FOR r = 7 TO 17
     NEXT c
 NEXT r
 FOR c = 17 TO 60
-    LOCATE 7, c: PRINT "ß"
-    LOCATE 17, c: PRINT "Ü"
+    LOCATE 7, c: PRINT "â–€"
+    LOCATE 17, c: PRINT "â–„"
 NEXT c
 FOR r = 7 TO 17
-    LOCATE r, 17: PRINT "Û"
-    LOCATE r, 60: PRINT "Û"
+    LOCATE r, 17: PRINT "â–ˆ"
+    LOCATE r, 60: PRINT "â–ˆ"
 NEXT r
 
 mark = 1

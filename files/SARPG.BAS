@@ -188,12 +188,12 @@ SELECT CASE ERR
 CASE 53
     CLS
     LOCATE 1, 1: PRINT "En Fil saknas. Installera om programmet eller "
-    LOCATE 2, 1: PRINT "starta om programmet i rÑtt katalog."
+    LOCATE 2, 1: PRINT "starta om programmet i r√§tt katalog."
     END
     RESUME
 CASE ELSE
     CLS
-    LOCATE 1, 1: PRINT "Ett fel har intrÑffat { "; ERR; " }"
+    LOCATE 1, 1: PRINT "Ett fel har intr√§ffat { "; ERR; " }"
     END
     RESUME
 END SELECT
@@ -235,29 +235,29 @@ SUB Box (Row1, Col1, Row2, Col2, Connect, Style, Shadow, FG, BG)
 
 COLOR FG, BG
 IF Style THEN
-    ConnectLeft$ = "Ã"
-    ConnectRight$ = "π"
-    ConnectDown$ = " "
-    ConnectUp$ = "À"
+    ConnectLeft$ = "‚ï†"
+    ConnectRight$ = "‚ï£"
+    ConnectDown$ = "‚ï©"
+    ConnectUp$ = "‚ï¶"
 
-    UpDown$ = "Õ"
-    LDCorner$ = "»"
-    RDCorner$ = "º"
-    RUCorner$ = "ª"
-    LUCorner$ = "…"
-    LeftRight$ = "∫"
+    UpDown$ = "‚ïê"
+    LDCorner$ = "‚ïö"
+    RDCorner$ = "‚ïù"
+    RUCorner$ = "‚ïó"
+    LUCorner$ = "‚ïî"
+    LeftRight$ = "‚ïë"
 ELSE
-    ConnectLeft$ = "√"
-    ConnectRight$ = "¥"
-    ConnectDown$ = "¡"
-    ConnectUp$ = "¬"
+    ConnectLeft$ = "‚îú"
+    ConnectRight$ = "‚î§"
+    ConnectDown$ = "‚î¥"
+    ConnectUp$ = "‚î¨"
 
-    UpDown$ = "ƒ"
-    LDCorner$ = "¿"
-    RDCorner$ = "Ÿ"
-    RUCorner$ = "ø"
-    LUCorner$ = "⁄"
-    LeftRight$ = "≥"
+    UpDown$ = "‚îÄ"
+    LDCorner$ = "‚îî"
+    RDCorner$ = "‚îò"
+    RUCorner$ = "‚îê"
+    LUCorner$ = "‚îå"
+    LeftRight$ = "‚îÇ"
 END IF
 
 FOR Row = Row1 + 1 TO Row2 - 1
@@ -473,14 +473,14 @@ OPEN "LEVEL.PTS" FOR INPUT AS #1
         INPUT #1, LevelQual&(i)
     NEXT i
   
-    PRINT "€";
+    PRINT "‚ñà";
 
     FOR l = 36 TO 100
         LevelQual&(l) = LevelQual&(l - 1) + 300000
     NEXT l
     ForNextLevelExp& = LevelQual&(Level) - Experience&
   
-    PRINT "€";
+    PRINT "‚ñà";
 
 CLOSE #1
 
@@ -492,7 +492,7 @@ OPEN "MAGIC.CNT" FOR INPUT AS #1
         MagicCounter(i, 2) = MagicCounter(i, 1)
     NEXT i
   
-    PRINT "€";
+    PRINT "‚ñà";
 
     FOR i = 21 TO 40
         MagicCounter(i, 1) = (MagicCounter(20, 1) + 1)
@@ -516,7 +516,7 @@ OPEN "FIGHT.CNT" FOR INPUT AS #1
         ShieldCounter(i) = FightCounter(i)
     NEXT i
 
-    PRINT "€";
+    PRINT "‚ñà";
    
     FOR i = 12 TO 999
         FightCounter(i) = (FightCounter(11) + (i - 10) * 3)
@@ -538,7 +538,7 @@ OPEN "REWARD.CNT" FOR INPUT AS #1
         GiveReward(i, 4) = GiveReward(i - 1, 4) + 100
         GiveReward(i, 5) = GiveReward(i - 1, 5) + 100
     NEXT i
-    PRINT "€";
+    PRINT "‚ñà";
 CLOSE #1
 
 OPEN "REWARD.DAT" FOR INPUT AS #1
@@ -691,7 +691,7 @@ FOR r = 1 TO MAXROW
         COLOR ForeGround, 0
         LOCATE r, c
         IF area(r, c) = WALL THEN
-            PRINT "€"
+            PRINT "‚ñà"
         ELSEIF area(r, c) = PLAYER THEN
             IF Load = FALSE THEN
                 lct = (pRow - 1) * 160 + ((pCol - 1) * 2)
@@ -702,14 +702,14 @@ FOR r = 1 TO MAXROW
             END IF
         ELSEIF area(r, c) = DOOR THEN
             COLOR DoorColor, 0
-            PRINT "∞"
+            PRINT "‚ñë"
         ELSEIF area(r, c) = LOCKED.PASS THEN
             COLOR DoorColor, 0
-            PRINT "±"
+            PRINT "‚ñí"
         ELSEIF area(r, c) = house THEN
             PRINT CHR$(127)
         ELSEIF area(r, c) = MarketPlace THEN
-            PRINT "∫"
+            PRINT "‚ïë"
         ELSEIF area(r, c) = OldHouse THEN
             PRINT CHR$(127)
         ELSE
@@ -720,7 +720,7 @@ NEXT
 
 IF Bana = 1 THEN
     IF Itemn(1) < 1 THEN
-        LOCATE 23, 79: PRINT "®"
+        LOCATE 23, 79: PRINT "¬ø"
     ELSE
         area(23, 79) = 0
     END IF
@@ -822,10 +822,10 @@ KEY(15) OFF                         'Put off key 15
 DIM BG(4 TO 22, 20 TO 65, 0 TO 1)    'Save Background
 SaveBG 0, 4, 20, 22, 65, BG()
 
-Box 4, 20, 11, 40, 0, 1, 1, ForeGround, 0      'VÑnster Uppe   EnemyBox
-Box 11, 20, 13, 40, 1, 1, 1, ForeGround, 0    'VÑnster Mellan ExtraBox
-Box 13, 20, 22, 40, 1, 1, 1, ForeGround, 0     'VÑnster Nere   DialogBox
-Box 4, 45, 20, 65, 0, 1, 1, ForeGround, 0      'Hîger          YouBox
+Box 4, 20, 11, 40, 0, 1, 1, ForeGround, 0      'V√§nster Uppe   EnemyBox
+Box 11, 20, 13, 40, 1, 1, 1, ForeGround, 0    'V√§nster Mellan ExtraBox
+Box 13, 20, 22, 40, 1, 1, 1, ForeGround, 0     'V√§nster Nere   DialogBox
+Box 4, 45, 20, 65, 0, 1, 1, ForeGround, 0      'H√∂ger          YouBox
 
 RANDOMIZE TIMER
 
@@ -1099,10 +1099,10 @@ KEY(15) OFF
 DIM BG(1 TO 24, 1 TO 80, 0 TO 1)
 SaveBG 0, 1, 1, 24, 80, BG()
 
-Box 2, 20, 11, 40, 0, 1, 1, ForeGround, BackGround  'VÑnster Uppe   EnemyBox
-Box 11, 20, 13, 40, 1, 1, 1, ForeGround, BackGround 'Mellan VÑnster ExtraBox
-Box 13, 20, 22, 40, 1, 1, 1, ForeGround, BackGround 'VÑnster Nere   DialogBox
-Box 3, 45, 20, 78, 0, 1, 1, ForeGround, BackGround  'Hîger          YouBox
+Box 2, 20, 11, 40, 0, 1, 1, ForeGround, BackGround  'V√§nster Uppe   EnemyBox
+Box 11, 20, 13, 40, 1, 1, 1, ForeGround, BackGround 'Mellan V√§nster ExtraBox
+Box 13, 20, 22, 40, 1, 1, 1, ForeGround, BackGround 'V√§nster Nere   DialogBox
+Box 3, 45, 20, 78, 0, 1, 1, ForeGround, BackGround  'H√∂ger          YouBox
 
 '************************WHO SHOULD THE PLAYER MEET***************************
 
@@ -1965,11 +1965,11 @@ DIM BG(1 TO 24, 1 TO 80, 0 TO 1)
 SaveBG 0, 1, 1, 24, 80, BG()
 
 
-Box 3, 5, 14, 40, 0, 1, 1, ForeGround, 0  'VÑnster Uppe
-Box 14, 5, 21, 40, 1, 1, 1, ForeGround, 0 'VÑnster Nere
+Box 3, 5, 14, 40, 0, 1, 1, ForeGround, 0  'V√§nster Uppe
+Box 14, 5, 21, 40, 1, 1, 1, ForeGround, 0 'V√§nster Nere
 
-Box 3, 43, 5, 71, 0, 1, 1, ForeGround, 0    'Hîger Uppe
-Box 6, 43, 22, 65, 0, 1, 1, ForeGround, 0  'Hîger Nere
+Box 3, 43, 5, 71, 0, 1, 1, ForeGround, 0    'H√∂ger Uppe
+Box 6, 43, 22, 65, 0, 1, 1, ForeGround, 0  'H√∂ger Nere
 
 LOCATE 4, 45: PRINT YouData$
 LOCATE 7, 45: PRINT "HP:"; YouHitPoints(1); "/"; YouHitPoints(2); " "
@@ -2315,17 +2315,17 @@ Center 4, CHR$(1) + "                "
 COLOR ForeGround, 0
 Center 3, " = Player      "
 Center 4, " = Enemy       "
-Center 5, "® = Key          "
+Center 5, "¬ø = Key          "
 COLOR DoorColor, 0
 Center 6, "{                "
 Center 7, "}                "
-Center 9, "∞                "
-Center 10, "±                "
-Center 11, "≤                "
+Center 9, "‚ñë                "
+Center 10, "‚ñí                "
+Center 11, "‚ñì                "
 COLOR ForeGround, 0
 LOCATE 6, 34: PRINT "= Switch on"
 LOCATE 7, 34: PRINT "= Switch off"
-Center 8, "€ = Wall         "
+Center 8, "‚ñà = Wall         "
 LOCATE 9, 34: PRINT "= Locked door"
 LOCATE 10, 34: PRINT "= Locked door"
 LOCATE 11, 34: PRINT "= Unlocked door"
@@ -2368,10 +2368,10 @@ Center 10, CHR$(34) + "D" + CHR$(34) + " = Dig in the ground"
 
 Center 12, "If you wonder what the shovel do:"
 Center 13, "If you are at a place, mostly a corner or a small area, like this:"
-Center 14, "€€€           €  €"
-Center 15, "€x€€€   or   €x€€x€"
-Center 16, "€           €x     "
-Center 17, "€€€€€        €€€€€€"
+Center 14, "‚ñà‚ñà‚ñà           ‚ñà  ‚ñà"
+Center 15, "‚ñàx‚ñà‚ñà‚ñà   or   ‚ñàx‚ñà‚ñàx‚ñà"
+Center 16, "‚ñà           ‚ñàx     "
+Center 17, "‚ñà‚ñà‚ñà‚ñà‚ñà        ‚ñà‚ñà‚ñà‚ñà‚ñà‚ñà"
 Center 18, "then press a big " + CHR$(34) + "D" + CHR$(34) + ". If you are lucky, you might find something."
 Center 19, "At areas like this can many things be. Like the big " + CHR$(34) + "Y" + CHR$(34) + " might be a "
 Center 20, "key to use at such spaces."
@@ -2448,7 +2448,7 @@ Center 2, "Introduction to SaRpg"
 Center 4, "You start the game by choosing <Play Game> in the menu."
 Center 5, "Then you will start on a map. The figure that is you character is the"
 Center 6, "figure that looks like this: " + CHR$(2) + ". You can move it in any direction,"
-Center 7, "that is empty, just by pressing the arrow keys. These:€ are walls."
+Center 7, "that is empty, just by pressing the arrow keys. These:‚ñà are walls."
 Center 8, "You can't move through them."
 
 Center 10, "You will know all the information about your character just by pressing"
@@ -2661,14 +2661,14 @@ LOCATE 6, 44
 OPEN "ENEMY.DAT" FOR INPUT AS #1
     COLOR 1, 0
     FOR i = 1 TO 12
-        PRINT "€";
+        PRINT "‚ñà";
     NEXT i
     COLOR 14, 0
     LOCATE 6, 44
     FOR e = 1 TO 12
         INPUT #1, EnemyData(e), EnemyHitPoints(e), EnemyAttack(e), EnemyDefence(e), EnemyMagic(e, 1), EnemyMagic(e, 2), EnemyExperience(e), EnemyUsen(e, 1), EnemyUsen(e, 2), EnemyLevel(e), EnemyMagicPoints(e), EnemyArmour(e), EnemyMoney(e),  _
 EnemyLoot(e), EnemyLootThing(e), EnemyLootChance(e), Itemn(e)
-        PRINT "€";
+        PRINT "‚ñà";
     NEXT e
     FOR i = 1 TO 12
         INPUT #1, EnemyWeaponType(i), EnemyWeapon(i, i), EnemyWeapon(i, i + 1)
@@ -2681,13 +2681,13 @@ LOCATE 10, 27: PRINT "Loading Boss:"
 LOCATE 10, 44
 OPEN "BOSS.DAT" FOR INPUT AS #1
     COLOR 1, 0
-    PRINT "€"; : PRINT "€";
+    PRINT "‚ñà"; : PRINT "‚ñà";
     COLOR 14, 0
     LOCATE 10, 44
     FOR Bosses = 1 TO 2
         INPUT #1, BossData(Bosses), BossHitPoints(Bosses), BossAttack(Bosses), BossDefence(Bosses), BossMagic(Bosses, 1), BossMagic(Bosses, 2), BossExperience(Bosses), BossUsen(Bosses, 1), BossUsen(Bosses, 2), BossLevel(Bosses), BossMagicPoints( _
 Bosses), BossArmour(Bosses), BossMoney(Bosses)
-        PRINT "€";
+        PRINT "‚ñà";
     NEXT Bosses
     FOR Weapons = 1 TO 2
         INPUT #1, BossWeaponType(Weapons), BossWeapon(Weapons, Weapons), BossWeapon(Weapons, Weapons + 1)
@@ -2704,7 +2704,7 @@ LOCATE 14, 40
 OPEN "DATA.DAT" FOR INPUT AS #1
     COLOR 1, 0
     FOR i = 1 TO 14
-        PRINT "€";
+        PRINT "‚ñà";
     NEXT i
     COLOR 14, 0
     LOCATE 14, 40
@@ -2715,13 +2715,13 @@ OPEN "DATA.DAT" FOR INPUT AS #1
     NEXT i
     PassWord$ = PassWor$(INT(15 * RND + 1))
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     INPUT #1, YouAttack
     INPUT #1, YouDefence
     INPUT #1, YouHitPoints(2)
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     YouHitPoints(1) = YouHitPoints(2)
     INPUT #1, YouData$
@@ -2729,7 +2729,7 @@ OPEN "DATA.DAT" FOR INPUT AS #1
     INPUT #1, YouMagic(2)
     INPUT #1, YouArmour
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     OPEN "WEAPONS.DAT" FOR INPUT AS #2
         FOR i = 1 TO 6
@@ -2746,25 +2746,25 @@ OPEN "DATA.DAT" FOR INPUT AS #1
     INPUT #1, MaxUsen
     INPUT #1, User
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     FOR i = 1 TO 17
         INPUT #1, Items(i)
     NEXT i
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     FOR i = 1 TO 17
         INPUT #1, Itemn(i)
     NEXT i
 
-    PRINT "€";
+    PRINT "‚ñà";
 
     FOR i = 5 TO 9
         INPUT #1, ItemCost(i)
     NEXT i
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     INPUT #1, Uses(1)
     INPUT #1, Uses(2)
@@ -2776,7 +2776,7 @@ OPEN "DATA.DAT" FOR INPUT AS #1
     INPUT #1, Load
     INPUT #1, Key11
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     INPUT #1, Key12
     INPUT #1, Key21
@@ -2792,7 +2792,7 @@ OPEN "DATA.DAT" FOR INPUT AS #1
     INPUT #1, MaxAttack
     INPUT #1, MaxDefence
    
-    PRINT "€";
+    PRINT "‚ñà";
 
     DefLevUp = 1
     AtkLevUp = 1
@@ -2815,10 +2815,10 @@ SUB Market
 DIM BG(1 TO 24, 1 TO 80, 0 TO 1)
 SaveBG 0, 1, 1, 24, 80, BG()
 
-Box 3, 10, 12, 45, 0, 1, 1, ForeGround, 0   'VÑnster Uppe
-Box 13, 15, 20, 45, 1, 1, 1, ForeGround, 0  'VÑnster Nere
-Box 2, 47, 4, 78, 0, 1, 1, ForeGround, 0    'Hîger Uppe
-Box 5, 47, 22, 68, 0, 1, 1, ForeGround, 0   'Hîger Nere
+Box 3, 10, 12, 45, 0, 1, 1, ForeGround, 0   'V√§nster Uppe
+Box 13, 15, 20, 45, 1, 1, 1, ForeGround, 0  'V√§nster Nere
+Box 2, 47, 4, 78, 0, 1, 1, ForeGround, 0    'H√∂ger Uppe
+Box 5, 47, 22, 68, 0, 1, 1, ForeGround, 0   'H√∂ger Nere
 
 LOCATE 3, 49: PRINT YouData$
 LOCATE 6, 49: PRINT "HP:"; YouHitPoints(1); "/"; YouHitPoints(2); " "
@@ -3229,7 +3229,7 @@ ELSEIF pRow = Door21Row AND pCol = Door21Col THEN
 
 ELSEIF Key21 = PASSED THEN
         IF pRow = Key21Row AND pCol = Key21Col THEN
-            'COLOR DoorColor: LOCATE Dorr21Row, Door21Col: PRINT CHR$(178) "≤"
+            'COLOR DoorColor: LOCATE Dorr21Row, Door21Col: PRINT CHR$(178) "‚ñì"
             lct = (Door21Row - 1) * 160 + ((Door21Col - 1) * 2)
             DEF SEG = &HB800
                 POKE lct + 1, DoorColor
@@ -3244,7 +3244,7 @@ ELSEIF Key21 = PASSED THEN
                 POKE lct, 123
             DEF SEG
 
-            'COLOR 4: LOCATE Door21Row, Door21Col: PRINT CHR$(178) "≤"
+            'COLOR 4: LOCATE Door21Row, Door21Col: PRINT CHR$(178) "‚ñì"
             lct = (Door21Row - 1) * 160 + ((Door21Col - 1) * 2)
             DEF SEG = &HB800
                 POKE lct + 1, DoorColor
@@ -3469,15 +3469,15 @@ Box 5, 32, 13, 50, 0, 1, 1, ForeGround, 0
 Box 15, 25, 18, 55, 0, 0, 1, ForeGround, 0
 
 FOR c = 30 TO 50
-    LOCATE 23, c: PRINT "ﬂ"
+    LOCATE 23, c: PRINT "‚ñÄ"
 NEXT c
-LOCATE 23, 30: PRINT "€"
-LOCATE 23, 50: PRINT "€"
-LOCATE 24, 30: PRINT "€"
-LOCATE 24, 50: PRINT "€"
+LOCATE 23, 30: PRINT "‚ñà"
+LOCATE 23, 50: PRINT "‚ñà"
+LOCATE 24, 30: PRINT "‚ñà"
+LOCATE 24, 50: PRINT "‚ñà"
 FOR D = 31 TO 49
     COLOR 0, 0
-    LOCATE 24, D: PRINT "€"
+    LOCATE 24, D: PRINT "‚ñà"
 NEXT D
 
 DEF SEG = &HB800
@@ -4042,11 +4042,11 @@ SUB OldMansHouse
 DIM BG(24, 80, 0 TO 1)
 SaveBG 0, 1, 1, 24, 80, BG()
 
-Box 3, 5, 10, 40, 0, 1, 1, ForeGround, 0  'VÑnster Uppe
-Box 10, 5, 21, 40, 1, 1, 1, ForeGround, 0 'VÑnster Nere
+Box 3, 5, 10, 40, 0, 1, 1, ForeGround, 0  'V√§nster Uppe
+Box 10, 5, 21, 40, 1, 1, 1, ForeGround, 0 'V√§nster Nere
 
-Box 3, 43, 5, 76, 0, 1, 1, ForeGround, 0    'Hîger Uppe
-Box 6, 43, 22, 76, 0, 1, 1, ForeGround, 0  'Hîger Nere
+Box 3, 43, 5, 76, 0, 1, 1, ForeGround, 0    'H√∂ger Uppe
+Box 6, 43, 22, 76, 0, 1, 1, ForeGround, 0  'H√∂ger Nere
 
 LOCATE 4, 45: PRINT YouData$
 LOCATE 7, 45: PRINT "Hit Points:": LOCATE 7, 64: PRINT USING "#### /#####"; YouHitPoints(1); YouHitPoints(2)
@@ -4363,7 +4363,7 @@ IF Itemn(17) = 1 THEN
     Box 10, 30, 15, 55, 0, 1, 1, ForeGround, 0
     LOCATE 11, 32: PRINT "But..."
     g$ = INPUT$(1)
-    LOCATE 12, 32: PRINT "Your ÔAmulet Of Life`"
+    LOCATE 12, 32: PRINT "Your ‚à©Amulet Of Life`"
     LOCATE 13, 32: PRINT "starts to shine. Your"
     LOCATE 14, 32: PRINT "health is restored."
     Itemn(17) = 0
@@ -4671,17 +4671,17 @@ FOR Colour = 1 TO 15
     LOCATE 8, 35 + Colour
     PRINT CHR$(2)
     LOCATE 10, 35 + Colour
-    PRINT "€"
+    PRINT "‚ñà"
     LOCATE 12, 35 + Colour
-    PRINT "≤"
+    PRINT "‚ñì"
 NEXT Colour
 
 
 
 DO
     COLOR PlayerColor, 0: LOCATE 8, (28 + 38): PRINT CHR$(2)
-    COLOR DoorColor, 0: LOCATE 12, (24 + 38): PRINT "≤±∞{}"
-    COLOR ForeGround, 0: LOCATE 10, (28 + 38): PRINT "€"
+    COLOR DoorColor, 0: LOCATE 12, (24 + 38): PRINT "‚ñì‚ñí‚ñë{}"
+    COLOR ForeGround, 0: LOCATE 10, (28 + 38): PRINT "‚ñà"
    
     LOCATE 7, 33: PRINT "Set outfit"
     LOCATE 8, 12: PRINT "Player:"
